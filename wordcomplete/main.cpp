@@ -25,12 +25,22 @@ namespace {
             trie.addWord(word); 
         }
     } 
+
+    void usage() 
+    { 
+        cerr << "./wordcomplete <prefix>" << endl; 
+    }
 }
 
-int main() 
+int main(int argc, char* argv[]) 
 { 
+    if (argc < 2 || (!strcmp("-h", argv[1]))) { 
+        usage(); 
+        return 1; 
+    }    
+
     Trie root; 
-    string prefix; 
+    string prefix = string(argv[1]);     
 
     try { 
         cout << "building word list, please wait .." << endl; 
@@ -38,8 +48,6 @@ int main()
         // read in the 10000 most common english words into the Trie struct    
         FillWordsInTrie("dict_words.txt", root); 
 
-        cout << "enter prefix: "; 
-        cin >> prefix; 
         vector<string> listWords; 
         root.getWordsForPrefix(prefix, string(""), listWords);
 
@@ -53,5 +61,6 @@ int main()
         cerr << err << endl; 
         return 1; 
     } 
+
     return 0; 
 }
