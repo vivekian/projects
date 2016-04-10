@@ -61,7 +61,7 @@ void Trie::depthFirstSearch(string curWord, vector<string>& listWords) const
    }
 
    // iterate all 26 outgoing edges and if there are edges, then recursively iterate them as well. 
-   for (char k=0; k<26; ++k) { 
+   for (char k=0; k<NUM_ALPHABETS; ++k) { 
       if (edges[k].get() != nullptr) {
          char nextChar = 'a' + k; 
          edges[k]->depthFirstSearch(curWord + nextChar, listWords); 
