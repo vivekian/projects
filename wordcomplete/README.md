@@ -1,13 +1,13 @@
 # wordcomplete
 command line utility to list all words with a common prefix. 
 
-how to compile: 
+> how to compile: 
     *make* 
 
-how to run: 
+> how to run: 
     *./wordcomplete "prefix"* 
 
-example: 
+> example: 
     ./wordcomplete alpha  
     building word list, please wait ..  
     alpha  
