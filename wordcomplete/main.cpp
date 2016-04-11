@@ -8,6 +8,8 @@
 using namespace std; 
 
 namespace { 
+    const string DICT_NAME = "/usr/share/dict/words"; 
+    
     //! stat is the fastest way to determine if a file exists
     bool fileExists(const string& filename) 
     { 
@@ -22,7 +24,7 @@ namespace {
     void FillWordsInTrie(const string & filename, Trie& trie)
     {
         if (!fileExists(filename)) 
-            throw string("file does not exist"); 
+            throw string("file does not exist " + filename); 
 
         ifstream infile(filename);  
         string word; 
@@ -54,7 +56,7 @@ int main(int argc, char* argv[])
         cout << "building word list, please wait .." << endl; 
 
         // common file found on Unix based systems with all english words 
-        FillWordsInTrie("/usr/share/dict/words", root); 
+        FillWordsInTrie(DICT_NAME, root); 
 
         vector<string> listWords; 
         root.getWordsForPrefix(prefix, string(""), listWords);
