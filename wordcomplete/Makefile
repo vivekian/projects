@@ -1,4 +1,5 @@
-CPPFLAGS=--std=c++11
+CPPFLAGS=--std=c++11 -O2
+LDFLAGS=-O2
 
 SRCS=trie_impl.cpp main.cpp
 OBJS=$(subst .cpp,.o,$(SRCS))
