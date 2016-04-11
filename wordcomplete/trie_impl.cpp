@@ -7,7 +7,6 @@ void Trie::addWord(string word)
         isWord = true; 
     }
     else { 
-   //     prefixes++; 
         char k = word[0]; 
         
         // create a new Trie object if one does not exist. 
