@@ -7,7 +7,7 @@ void Trie::addWord(string word)
         words++; 
     }
     else { 
-        prefixes++; 
+   //     prefixes++; 
         char k = word[0]; 
         
         // create a new Trie object if one does not exist. 
@@ -36,21 +36,6 @@ uint32_t Trie::countWords(string word) const
         word.erase(0, 1);  
         return edges[k-'a']->countWords(word); 
     }
-}
-
-uint32_t Trie::countPrefixes(string prefix) const 
-{
-   char k = prefix[0]; 
-   
-   if (prefix.size() == 0) 
-       return words + prefixes; 
-   else if (edges[k-'a'].get() == nullptr) { 
-       return 0; 
-   }
-   else { 
-       prefix.erase(0,1); 
-       return edges[k-'a']->countPrefixes(prefix);
-   }
 }
 
 void Trie::depthFirstSearch(string curWord, vector<string>& listWords) const 

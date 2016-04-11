@@ -15,8 +15,7 @@ class Trie
 {
     public:  
         //! constructor - setup all the edges to be nullptr. 
-        Trie():
-            words(0), prefixes(0)
+        Trie(): words(0)
         {
             for (int i=0; i<NUM_ALPHABETS; ++i) { 
                 edges.push_back(nullptr);
@@ -28,9 +27,6 @@ class Trie
 
         //! add a word to the trie starting from the root of the tree.
         void addWord(string word); 
-
-        //! count the number of words+prefixes for a common prefix
-        uint32_t countPrefixes(string prefix) const; 
 
         //! count the number of words for a common word 
         uint32_t countWords(string word) const; 
@@ -44,9 +40,6 @@ class Trie
 
         //! number of words from the root.  
         uint32_t words; 
-        
-        //! number of common prefixes. 
-        uint32_t prefixes; 
         
         //! a vector of pointers to further vertices 
         vector<unique_ptr<Trie>> edges; 
