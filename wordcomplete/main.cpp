@@ -32,12 +32,12 @@ namespace {
 
         while (infile >> word) {
             // convert each word to lowercase and then add it to the trie
-	    transform(word.begin(), word.end(), word.begin(), ::tolower);
+	        transform(word.begin(), word.end(), word.begin(), ::tolower);
 
 	    // if a word has non alpha chars then skip it.
 	    if (word.find_first_not_of("abcdefghijklmnopqrstuvwxyz") == string::npos) {
         	    trie.addWord(word);
-	    }
+	        }
         }
     }
 

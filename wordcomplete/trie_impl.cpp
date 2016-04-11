@@ -4,7 +4,7 @@ void Trie::addWord(string word)
 {
     // if the word is empty then increment the word count  
     if (word.size() == 0) { 
-        words++; 
+        isWord = true; 
     }
     else { 
    //     prefixes++; 
@@ -21,27 +21,10 @@ void Trie::addWord(string word)
     }
 }
 
-uint32_t Trie::countWords(string word) const 
-{ 
-    char k = word[0]; 
-
-    // if the word is empty, then query has been searched
-    if (word.size() == 0) 
-        return words; 
-    else if (edges[k-'a'].get() == nullptr) { 
-        return 0; 
-    } 
-    // remove the first char and recursively iterate again
-    else { 
-        word.erase(0, 1);  
-        return edges[k-'a']->countWords(word); 
-    }
-}
-
 void Trie::depthFirstSearch(string curWord, vector<string>& listWords) const 
 {
    // if words is non-zero, that means current vertex is a word itself. 
-   if (words) { 
+   if (isWord) { 
       listWords.push_back(curWord); 
    }
 
