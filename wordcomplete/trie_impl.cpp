@@ -1,5 +1,9 @@
 #include "trie_impl.h"
 
+using std::string; 
+using std::vector; 
+using std::unique_ptr; 
+
 void Trie::addWord(string word) 
 {
     // if the word is empty then increment the word count  

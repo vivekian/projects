@@ -4,8 +4,6 @@
 #include <memory> 
 #include <vector> 
 
-using namespace std; 
-
 namespace { 
     const uint32_t NUM_ALPHABETS = 26; 
 }
@@ -26,18 +24,18 @@ class Trie
         ~Trie() {} 
 
         //! add a word to the trie starting from the root of the tree.
-        void addWord(string word); 
+        void addWord(std::string word); 
 
         //! get all words for a common prefix 
-        void getWordsForPrefix(string prefix, string curWord, vector<string>& words) const;
+        void getWordsForPrefix(std::string prefix, std::string curWord, std::vector<std::string>& words) const;
 
     private: 
         //! for the given vertex, explore the child trie to capture all words present 
-        void depthFirstSearch(string curWord, vector<string>& words) const;
+        void depthFirstSearch(std::string curWord, std::vector<std::string>& words) const;
 
         //! is the vertex a word 
         bool isWord; 
         
         //! a vector of pointers to further vertices 
-        vector<unique_ptr<Trie>> edges; 
+        std::vector<std::unique_ptr<Trie>> edges; 
 }; 
