@@ -14,7 +14,7 @@ void Trie::addWord(string word)
         char k = word[0]; 
         
         // create a new Trie object if one does not exist. 
-        if (edges[k-'a'].get() == nullptr) { 
+        if (edges[k-'a'] == nullptr) { 
             edges[k-'a'].reset(new Trie());
         }
         
@@ -33,7 +33,7 @@ void Trie::depthFirstSearch(string curWord, vector<string>& listWords) const
 
    // iterate all 26 outgoing edges and if there are edges, then recursively iterate them as well. 
    for (char k=0; k<NUM_ALPHABETS; ++k) { 
-      if (edges[k].get() != nullptr) {
+      if (edges[k] != nullptr) {
          char nextChar = 'a' + k; 
          edges[k]->depthFirstSearch(curWord + nextChar, listWords); 
       }
@@ -47,7 +47,7 @@ void Trie::getWordsForPrefix(string prefix, string curWord, vector<string>& list
     if (prefix.size() == 0) {
         return depthFirstSearch(curWord, listWords); 
     }
-    else if (edges[k-'a'].get() == nullptr) {
+    else if (edges[k-'a'] == nullptr) {
         return; 
     }
     else { 

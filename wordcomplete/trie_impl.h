@@ -15,9 +15,7 @@ class Trie
         //! constructor - setup all the edges to be nullptr. 
         Trie(): isWord(false)
         {
-            for (int i=0; i<NUM_ALPHABETS; ++i) { 
-                edges.push_back(nullptr);
-            }
+            edges.resize(NUM_ALPHABETS); 
         }
 
         //! empty destructor 
